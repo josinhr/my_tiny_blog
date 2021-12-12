@@ -1,4 +1,8 @@
 # Welcome to My tiny blog!
+
+![image](https://user-images.githubusercontent.com/56626396/145712204-45795953-8afa-48c8-b036-934dbf9a2820.png)
+
+
 This is a tiny blog based on the remix tutorial 
 
 - [Remix tutorial](https://remix.run/docs/en/v1/tutorials/jokes)
