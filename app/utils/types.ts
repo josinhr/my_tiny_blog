@@ -3,3 +3,7 @@ export type BlogEntry = {
   subtitle: string;
   content: string;
 };
+
+export type BlogEntryFromDatabase = BlogEntry & {
+  id: string;
+};

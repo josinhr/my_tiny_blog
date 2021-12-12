@@ -1,5 +1,5 @@
 import blog_entries from "../posts/blog_entries.json";
-import { BlogEntry } from "./model";
+import { BlogEntry } from "../app/utils/types";
 import { PrismaClient } from "@prisma/client";
 const db = new PrismaClient();
 

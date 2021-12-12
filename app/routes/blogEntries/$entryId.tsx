@@ -1,12 +1,21 @@
+import { LoaderFunction, useLoaderData } from "remix";
+import { db } from "~/utils/db.server";
+import { BlogEntryFromDatabase } from "~/utils/types";
+
+export const loader: LoaderFunction = async ({ params }) => {
+  return await db.entry.findUnique({
+    where: { id: params.entryId },
+  });
+};
+
 export default function BlogEntriesEntryId() {
+  const data = useLoaderData<BlogEntryFromDatabase>();
+
   return (
     <div className="entryDisplay">
-      <h2>Blog Entry title</h2>
-      <h3>Blog Entry subtitle</h3>
-      <p>
-        This is the blogEntries EntryId page. You can edit this file in the
-        <code>/app/routes/blogEntries/EntryId.tsx</code>
-      </p>
+      <h2>{data.title}</h2>
+      <h3>{data.subtitle}</h3>
+      <p>{data.content}</p>
     </div>
   );
 }
