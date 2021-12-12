@@ -1,6 +1,12 @@
-# Welcome to Remix!
+# Welcome to My tiny blog!
+This is a tiny blog based on the remix tutorial 
 
-- [Remix Docs](https://remix.run/docs)
+- [Remix tutorial](https://remix.run/docs/en/v1/tutorials/jokes)
+
+and the following youtube video
+
+- [Remix video](https://www.youtube.com/watch?v=0zTBdLmNJeU&t=5036s)
+
 
 ## Development
 
