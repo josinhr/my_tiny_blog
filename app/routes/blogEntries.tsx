@@ -45,8 +45,12 @@ export default function BlogEntriesRoute() {
                   <Link to={entry.id}>{entry.title}</Link>
                 </li>
               ))}
+              <li className="addLi">
+                <Link to="newEntry">New entry</Link>
+              </li>
             </ul>
           </nav>
+
           <hr className="rounded" />
         </div>
         <div>
