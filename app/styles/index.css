@@ -2,3 +2,19 @@ body {
   color: hsl(0, 0%, 100%);
   background-color: black;
 }
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.buttonContainer a {
+  background-color: rgb(255, 189, 65);
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: black;
+}

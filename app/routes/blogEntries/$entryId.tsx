@@ -1,6 +1,6 @@
 export default function BlogEntriesEntryId() {
   return (
-    <div>
+    <div className="entryDisplay">
       <h2>Blog Entry title</h2>
       <h3>Blog Entry subtitle</h3>
       <p>

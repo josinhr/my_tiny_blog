@@ -1,9 +1,26 @@
-export default function BlogEntriesRoute(){
-    return (
-        <div>
-        <h2>Here my first blog entry</h2>
-        <p>This is the body of my entry</p>
-        <p>You may see that this is powerless, but you'll see in a future!</p>
-        </div>
-    );
+import { Link } from "remix";
+
+export default function BlogEntriesRoute() {
+  return (
+    <div className="container">
+      <div className="content">
+        <h2>
+          Remix <span>blog entries!</span>
+        </h2>
+        <nav className="entriesList">
+          <ul>
+            <li>
+              <Link to="entry-1">First Entry</Link>
+            </li>
+            <li>
+              <Link to="entry-2">Second Entry</Link>
+            </li>
+            <li>
+              <Link to="entry-3">Third Entry</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  );
 }
