@@ -3,7 +3,7 @@ import { db } from "~/utils/db.server";
 import { BlogEntryFromDatabase } from "~/utils/types";
 
 export const loader: LoaderFunction = async ({ params }) => {
-  return await db.entry.findUnique({
+  return db.entry.findUnique({
     where: { id: params.entryId },
   });
 };
