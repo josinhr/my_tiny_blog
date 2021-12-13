@@ -1,8 +1,8 @@
 import blog_entries from "../posts/blog_entries.json";
 import { BlogEntry } from "../app/utils/types";
-// import { PrismaClient } from "@prisma/client";
-import { db } from "../app/utils/db.server";
-// const db = new PrismaClient();
+import { PrismaClient } from "@prisma/client";
+// import { db } from "../app/utils/db.server";
+const db = new PrismaClient();
 
 async function seed() {
   const admin = await db.user.create({
