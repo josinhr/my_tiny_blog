@@ -6,7 +6,7 @@ import {
   useActionData,
   useSearchParams,
 } from "remix";
-import { login } from "~/utils/session.server";
+import { createUserSession, login } from "~/utils/session.server";
 
 import stylesUrl from "~/styles/login.css";
 import { db } from "~/utils/db.server";
@@ -81,11 +81,8 @@ export const action: ActionFunction = async ({ request }) => {
           formError: `Username/Password combination is incorrect`,
         });
       }
-      // if there is a user, create their session and redirect to /jokes
-      return badRequest({
-        fields,
-        formError: "Not implemented",
-      });
+      // if there is a user, create their session and redirect to /blogEntries
+      return createUserSession(user.id, redirectTo);
     }
     case "register": {
       const userExists = await db.user.findFirst({
@@ -98,7 +95,7 @@ export const action: ActionFunction = async ({ request }) => {
         });
       }
       // create the user
-      // create their session and redirect to /jokes
+      // create their session and redirect to /blogEntries
       return badRequest({
         fields,
         formError: "Not implemented",
