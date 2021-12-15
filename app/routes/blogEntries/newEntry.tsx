@@ -1,6 +1,7 @@
 import { ActionFunction, json, redirect, useActionData } from "remix";
 import { db } from "~/utils/db.server";
 import { ActionData } from "~/utils/types";
+import { requireUserId } from "~/utils/session.server";
 
 function validateEntryTitle(title: string): string | undefined {
   if (title.length < 3) return "Title must be at least 3 characters long";
@@ -20,6 +21,8 @@ function validateEntrySubtitle(subtitle: string): string | undefined {
 const badRequest = (data: ActionData) => json(data, { status: 400 });
 
 export const action: ActionFunction = async ({ request }) => {
+  const userId = await requireUserId(request);
+
   const form = await request.formData();
   const title = form.get("title");
   const subtitle = form.get("subtitle");
@@ -46,7 +49,9 @@ export const action: ActionFunction = async ({ request }) => {
     return badRequest({ fieldErrors, fields });
   }
 
-  const entry = await db.entry.create({ data: fields });
+  const entry = await db.entry.create({
+    data: { ...fields, bloggerId: userId },
+  });
   return redirect(`/blogEntries/${entry.id}`);
 };
 

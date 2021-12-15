@@ -8,7 +8,9 @@ import {
 
 import { db } from "~/utils/db.server";
 import stylesUrl from "~/styles/blogEntries.css";
-import { BlogEntryFromDatabase } from "~/utils/types";
+import { BlogEntryFromDatabaseLoader } from "~/utils/types";
+import { getUser } from "~/utils/session.server";
+import { Entry } from "@prisma/client";
 
 export const links: LinksFunction = () => {
   return [
@@ -19,16 +21,22 @@ export const links: LinksFunction = () => {
   ];
 };
 
-export const loader: LoaderFunction = async () => {
-  const data: BlogEntryFromDatabase[] = await db.entry.findMany({
+export const loader: LoaderFunction = async ({ request }) => {
+  const blogEntryDatabase: Entry[] = await db.entry.findMany({
     // take: 5,
     orderBy: { createdAt: "desc" },
   });
+  const user = await getUser(request);
+
+  const data: BlogEntryFromDatabaseLoader = {
+    entries: blogEntryDatabase,
+    user: user,
+  };
   return data;
 };
 
 export default function BlogEntriesRoute() {
-  const data = useLoaderData<BlogEntryFromDatabase[]>();
+  const data = useLoaderData<Entry[]>();
   return (
     <div>
       <h1>My tiny blog entries ✍</h1>

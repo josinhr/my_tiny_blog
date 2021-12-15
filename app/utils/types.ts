@@ -1,11 +1,8 @@
-export type BlogEntry = {
-  title: string;
-  subtitle: string;
-  content: string;
-};
+import { Entry, User } from "@prisma/client";
 
-export type BlogEntryFromDatabase = BlogEntry & {
-  id: string;
+export type BlogEntryFromDatabaseLoader = {
+  user: User | null;
+  entries: Entry[];
 };
 
 export type ActionData = {
