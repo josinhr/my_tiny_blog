@@ -36,10 +36,29 @@ export const loader: LoaderFunction = async ({ request }) => {
 };
 
 export default function BlogEntriesRoute() {
-  const data = useLoaderData<Entry[]>();
+  const data = useLoaderData<BlogEntryFromDatabaseLoader>();
   return (
     <div>
-      <h1>My tiny blog entries ✍</h1>
+      <header className="entries-header">
+        <div className="home-link">
+          <Link to="/" title="entries" aria-label="Entries">
+            <h1>My tiny blog entries ✍</h1>
+          </Link>
+        </div>
+        {data.user ? (
+          <div className="user-info">
+            <span>{`Hi ${data.user.username}`}</span>
+            <form action="/logout" method="post">
+              <button type="submit" className="button">
+                Logout
+              </button>
+            </form>
+          </div>
+        ) : (
+          <Link to="/login">Login</Link>
+        )}
+      </header>
+
       <hr className="rounded" />
       <h2>
         Remix <span>blog entries!</span>
@@ -48,7 +67,7 @@ export default function BlogEntriesRoute() {
         <div className="sidebar">
           <nav className="entriesList">
             <ul>
-              {data.map((entry) => (
+              {data.entries.map((entry) => (
                 <li key={entry.title}>
                   <Link to={entry.id}>{entry.title}</Link>
                 </li>
