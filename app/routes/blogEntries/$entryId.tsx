@@ -1,6 +1,6 @@
-import { LoaderFunction, useLoaderData } from "remix";
+import { Entry } from "@prisma/client";
+import { LoaderFunction, useLoaderData, useParams } from "remix";
 import { db } from "~/utils/db.server";
-import { BlogEntryFromDatabase } from "~/utils/types";
 
 export const loader: LoaderFunction = async ({ params }) => {
   return db.entry.findUnique({
@@ -9,7 +9,7 @@ export const loader: LoaderFunction = async ({ params }) => {
 };
 
 export default function BlogEntriesEntryId() {
-  const data = useLoaderData<BlogEntryFromDatabase>();
+  const data = useLoaderData<Entry>();
 
   return (
     <div className="entryDisplay">
@@ -17,5 +17,12 @@ export default function BlogEntriesEntryId() {
       <h3>{data.subtitle}</h3>
       <p>{data.content}</p>
     </div>
+  );
+}
+
+export function ErrorBoundary() {
+  const { entryId } = useParams();
+  return (
+    <div className="error-container">{`There was an error loading entry by the id ${entryId}. Sorry.`}</div>
   );
 }

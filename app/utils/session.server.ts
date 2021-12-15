@@ -1,12 +1,21 @@
 import bcrypt from "bcrypt";
 import { db } from "./db.server";
 import { createCookieSessionStorage, redirect } from "remix";
-require("dotenv").config();
+import dotenv from "dotenv";
+
+dotenv.config();
 
 type LoginForm = {
   username: string;
   password: string;
 };
+
+export async function register({ username, password }: LoginForm) {
+  const passwordHash = await bcrypt.hash(password, 10);
+  return db.user.create({
+    data: { username, passwordHash },
+  });
+}
 
 export async function login({ username, password }: LoginForm) {
   const user = await db.user.findUnique({

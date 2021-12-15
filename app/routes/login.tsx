@@ -6,7 +6,7 @@ import {
   useActionData,
   useSearchParams,
 } from "remix";
-import { createUserSession, login } from "~/utils/session.server";
+import { createUserSession, login, register } from "~/utils/session.server";
 
 import stylesUrl from "~/styles/login.css";
 import { db } from "~/utils/db.server";
@@ -96,10 +96,14 @@ export const action: ActionFunction = async ({ request }) => {
       }
       // create the user
       // create their session and redirect to /blogEntries
-      return badRequest({
-        fields,
-        formError: "Not implemented",
-      });
+      const user = await register({ username, password });
+      if (!user) {
+        return badRequest({
+          fields,
+          formError: `Something went wrong trying to create a new user.`,
+        });
+      }
+      return user;
     }
     default: {
       return badRequest({
