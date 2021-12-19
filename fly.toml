@@ -1,4 +1,4 @@
-# fly.toml file generated for my-tiny-blog on 2021-12-15T23:40:30+01:00
+# fly.toml file generated for my-tiny-blog on 2021-12-19T19:51:35+01:00
 
 app = "my-tiny-blog"
 
@@ -7,6 +7,7 @@ kill_timeout = 5
 processes = []
 
 [env]
+  DATABASE_URL="file:./dev.db"
 
 [experimental]
   allowed_public_ports = []

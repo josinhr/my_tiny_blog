@@ -1,7 +1,12 @@
 import blog_entries from "../posts/blog_entries.json";
-import { BlogEntry } from "../app/utils/types";
 import { PrismaClient } from "@prisma/client";
 const db = new PrismaClient();
+
+type BlogEntryFromJson = {
+  title: string;
+  subtitle: string;
+  content: string;
+};
 
 async function seed() {
   const admin = await db.user.create({
@@ -22,6 +27,6 @@ async function seed() {
 
 seed();
 
-function getBlogEntries(): BlogEntry[] {
-  return blog_entries as BlogEntry[];
+function getBlogEntries(): BlogEntryFromJson[] {
+  return blog_entries as BlogEntryFromJson[];
 }

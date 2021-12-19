@@ -1,9 +1,6 @@
 import bcrypt from "bcrypt";
 import { db } from "./db.server";
 import { createCookieSessionStorage, redirect } from "remix";
-import dotenv from "dotenv";
-
-dotenv.config();
 
 type LoginForm = {
   username: string;
