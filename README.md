@@ -11,11 +11,11 @@ and the following youtube video
 ![image](https://user-images.githubusercontent.com/56626396/147595436-78755e59-2f7e-4fda-9ff0-67b73d34f435.png)
 
 With a simple login
-![image](https://user-images.githubusercontent.com/56626396/147595465-95fe023c-5d77-472e-8153-056bc91e8d32.png)
+![image](https://user-images.githubusercontent.com/56626396/147595613-64d18ef9-526a-484a-bc5a-5a36c12aa234.png)
 
 And forms to add new entries.
 
-![image](https://user-images.githubusercontent.com/56626396/147595496-6852e418-5792-48a2-969b-52733c3ca519.png)
+![image](https://user-images.githubusercontent.com/56626396/147595581-eeb9c39d-5000-4e14-88fe-c453d3a5ec66.png)
 
 Not deployed due to issues in it.
 
