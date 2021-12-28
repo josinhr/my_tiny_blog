@@ -1,8 +1,5 @@
 # Welcome to My tiny blog!
 
-![image](https://user-images.githubusercontent.com/56626396/145712204-45795953-8afa-48c8-b036-934dbf9a2820.png)
-
-
 This is a tiny blog based on the remix tutorial 
 
 - [Remix tutorial](https://remix.run/docs/en/v1/tutorials/jokes)
@@ -11,6 +8,16 @@ and the following youtube video
 
 - [Remix video](https://www.youtube.com/watch?v=0zTBdLmNJeU&t=5036s)
 
+![image](https://user-images.githubusercontent.com/56626396/147595436-78755e59-2f7e-4fda-9ff0-67b73d34f435.png)
+
+With a simple login
+![image](https://user-images.githubusercontent.com/56626396/147595465-95fe023c-5d77-472e-8153-056bc91e8d32.png)
+
+And forms to add new entries.
+
+![image](https://user-images.githubusercontent.com/56626396/147595496-6852e418-5792-48a2-969b-52733c3ca519.png)
+
+Not deployed due to issues in it.
 
 ## Development
 
